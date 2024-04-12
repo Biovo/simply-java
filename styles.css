@@ -1,0 +1,931 @@
+/* TODO:
+    - DONE: Style buttons and then move on to JS 
+    - DONE: Look up how to style input and submit for email */
+
+@import url('https://fonts.googleapis.com/css2?family=Crete+Round:ital@0;1&display=swap');
+
+/*** PAGE RESET ***/
+:root {
+    --charcoal: #101010;
+    --off_white: #faf3ec;
+    --muted_red: #d76365;
+    --dark_red: #61191c;
+    --red: #ff363a;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+
+    /* baseline font + color */
+    font-family: 'Crete Round', sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+/*** NAVIGATION ***/
+#header {
+    background-color: var(--charcoal);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.2em 1em;
+
+    position: sticky;
+    top: 0;
+
+    /* fix for review overlapping header */
+    z-index: 999;
+}
+
+.logo {
+    /* added cause mystery padding that wont go away omfg please just leave */
+    height: 80px;
+}
+
+.logo,
+.links a,
+.nav_toggle {
+    color: var(--off_white);
+}
+
+#header-img {
+    /* if you change make sure to adjust .logo height cause of that annoying magic padding */
+    width: 80px;
+    aspect-ratio: 1;
+}
+
+#header p {
+    float: right;
+    margin-left: 0.5em;
+
+    /* set to the same height as #header-img */
+    line-height: 80px;
+    font-size: 1.5em;
+}
+
+.logo_text {
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--muted_red);
+}
+
+.links,
+.socials {
+    display: flex;
+}
+
+.links {
+    gap: 1.5em;
+    font-size: 1.2em;
+}
+
+.nav-link {
+    /* to cap the pseudo element's width */
+    position: relative;
+}
+
+.nav-link:before {
+    content: '';
+    background-color: var(--red);
+    position: absolute;
+    top: -30px;
+    width: 100%;
+    transform: scaleX(0);
+
+    /* can change to middle maybe? */
+    transform-origin: left;
+    transition: 0.3s ease;
+
+    /* Larger for bolder line */
+    height: 4px;
+}
+
+.nav-link:hover:before {
+    /* Makes the :before element actually appear */
+    transform: scaleX(1);
+}
+
+.nav-link:hover {
+    color: var(--muted_red);
+}
+
+.socials {
+    gap: 0.2em;
+}
+
+.socials i {
+    color: var(--muted_red);
+    font-size: 1.5em;
+}
+
+.socials i:hover {
+    color: var(--off_white);
+}
+
+.nav_toggle {
+    display: none;
+}
+
+.nav_title {
+    font-size: 2.5em;
+    color: var(--dark_red);
+}
+
+/*** HOME ***/
+.landing_grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+
+    /* needed if using .bg_transition clip */
+    overflow: hidden;
+}
+
+.landing_grid .bg_img {
+    width: 100%;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    z-index: -2;
+    min-height: 400px;
+    object-fit: cover;
+
+    /* to flip img */
+    transform: scaleX(-1);
+}
+
+.landing_grid .bg_transition {
+    width: 100%;
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
+    align-self: end;
+}
+
+.landing_grid .landing_text {
+    grid-column: 1 / 4;
+    grid-row: 1 / -1;
+
+    /* Might need to edit this once the text is finalized */
+    max-width: 55%;
+    margin-left: 0.7em;
+
+    /* testing */
+    padding-left: 1em;
+
+    font-size: 3.25em;
+    align-self: center;
+    color: var(--off_white);
+    min-width: 350px;
+}
+
+/*** VIDEO ***/
+.video_container {
+    display: flex;
+    justify-content: center;
+    padding-inline: 1em;
+    margin-top: 3em;
+    gap: 1.5em;
+}
+
+.video_container iframe {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    max-width: 900px;
+    border: 0;
+}
+
+.video_container .video_text {
+    align-self: center;
+    width: 550px;
+    max-width: 45%;
+}
+
+.video_text h2 {
+    margin-bottom: 0.5em;
+}
+
+.video_text p {
+    font-size: 1.2em;
+}
+
+/*** REVIEW ***/
+.review_wrapper {
+    max-width: 1100px;
+    /* centers on larger screen sizes */
+    margin-inline: auto;
+    margin-top: 5em;
+    /* for the arrows position absolute */
+    position: relative;
+}
+
+.rdivider {
+    /* for the border's absolute */
+    position: relative;
+}
+
+.rspan {
+    content: " ";
+    position: absolute;
+    /* combined it leaves a 5% gap on each side, adjust as desired */
+    width: 90%;
+    left: 5%;
+    /* centers the bars */
+    top: 50%;
+    /* adjust thickness as desired */
+    border: 2px solid var(--dark_red);
+    border-radius: 50%;
+}
+
+.review_wrapper h2 {
+    margin-bottom: 0.5em;
+
+    /* cooking in progress */
+    background-color: #fff;
+    padding-inline: 0.7em;
+    position: relative;
+    width: fit-content;
+    margin-inline: auto;
+    z-index: 2;
+}
+
+.reviews {
+    display: grid;
+    grid-auto-flow: column;
+    /* adjust this in @media for mobile */
+    grid-auto-columns: calc((100% / 3 - 8px));
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+
+    /* spacing properties */
+    gap: 1em;
+}
+
+.reviews::-webkit-scrollbar {
+    display: none;
+}
+
+.reviews.no-transition {
+    scroll-behavior: auto;
+}
+
+.reviews.dragging {
+    cursor: grab;
+    user-select: none;
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+}
+
+.review_card {
+    scroll-snap-align: start;
+
+    /* flex alt */
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
+
+    max-width: 350px;
+    height: 400px;
+    background-color: hsl(0, 0%, 80%);
+    border-radius: 12px;
+    padding: 1em;
+
+    /* grid */
+    display: grid;
+    grid-template-rows: repeat(1fr, 3);
+    justify-items: center;
+}
+
+.review_card img {
+    width: 130px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.review_card i {
+    color: var(--dark_red);
+}
+
+.review_card h3 {
+    color: var(--dark_red);
+}
+
+.review_card p {
+    text-align: center;
+}
+
+.review_card .suavemente {
+    white-space: pre-line;
+}
+
+#scroll_left,
+#scroll_right {
+    position: absolute;
+    cursor: pointer;
+    font-size: 2em;
+    background: var(--muted_red);
+    border-radius: 50%;
+    top: 50%;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 0.2);
+    opacity: 0.8;
+    /* to help center the arrows */
+    transform: translateY(50%);
+}
+
+#scroll_left:hover,
+#scroll_right:hover {
+    opacity: 1;
+}
+
+#scroll_left {
+    left: -50px;
+}
+
+#scroll_right {
+    right: -50px;
+}
+
+/*** PRODUCT ***/
+.product_container {
+    /* to cap at featured with three cards layout */
+    max-width: 1479px;
+    /* centers */
+    margin-inline: auto;
+}
+
+.product_header {
+    position: relative;
+    text-align: center;
+    margin: 5em 0 2em;
+}
+
+#shop {
+    margin-bottom: 0.3em;
+}
+
+.product_header p {
+    font-style: italic;
+    margin-top: 2em;
+}
+
+/* fancy border, adjust as needed */
+.pspan {
+    content: " ";
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    /* centers the bars */
+    top: 60%;
+    /* adjust thickness as desired */
+    border: 2px solid var(--dark_red);
+    border-radius: 50%;
+}
+
+/* border dot, adjust as needed */
+.pspan:after {
+    content: " ";
+    position: absolute;
+    width: 10px;
+    aspect-ratio: 1 / 1;
+    left: 50%;
+    top: 65%;
+    border-radius: 50%;
+    border: 3px solid white;
+    background-color: var(--dark_red);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.product_grid {
+    /* this is where the magic happens */
+    display: grid;
+    /* magic property that makes things responsive */
+    grid-template-columns:
+        repeat(auto-fit, minmax(15rem, 1fr));
+    /* so they don't hug */
+    gap: 0.5em;
+}
+
+.product_card {
+    /* for .sale */
+    position: relative;
+    background-color: var(--charcoal);
+    /* rounds */
+    border-radius: 20px;
+    /* makes the different cards distinct */
+    /*  border: 2px solid var(--dark_red); */
+    box-shadow: 1px 1px 5px 3px rgb(0 0 0 / 0.4);
+
+    /* stops sale tag from overflowing */
+    overflow: hidden;
+}
+
+/* STACKED IS FOR FEATURED */
+.stacked {
+    display: grid;
+}
+
+.stacked>* {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+}
+
+.product_card[data-featured="true"] {
+    grid-row: span 2;
+    grid-column: span 2;
+}
+
+.product_card[data-featured="true"] img {
+    /* PROLLY NEED TO ADJUST IF YOU CHANGE GRID LAYOUT */
+    aspect-ratio: 1/ 1.25;
+
+    /* stops the card from clipping bottom corners when featured is active */
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.product_card img {
+    /* makes images equal sizes */
+    width: 100%;
+    /* down-sizes to fit */
+    object-fit: contain;
+    /* ensures they stay square */
+    aspect-ratio: 1 / 1;
+
+    /* to stop it cutting the corners */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #fff;
+}
+
+.product_content {
+    /* so they don{t huge the sides */
+    padding: 0.5em;
+
+    /* match color with product_card */
+    background-color: var(--charcoal);
+    /* to stop clipping of the corners */
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    color: var(--muted_red);
+}
+
+.product_content[data-featured="true"] {
+    /* applies only to featured so that it doesn't overlap img while not causing a gap on other cards */
+    align-self: end;
+}
+
+.product_card h3 {
+    color: #fff;
+}
+
+.price {
+    font-size: 1.4em;
+}
+
+.slashed {
+    text-decoration: line-through;
+}
+
+.sale {
+    position: absolute;
+    top: 0;
+    font-size: 1.35em;
+    /* top/bottom + inline */
+    padding: 0.3em 0.5em;
+    border-bottom-right-radius: 8px;
+    /* var(--muted-red) but with 0.9 opacity */
+    background-color: rgb(215 99 101 / 0.9);
+}
+
+
+/*** DOUBLE CHECK TOMORROW ***/
+.shop_btn {
+    background-color: var(--charcoal);
+    /* positioning */
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    position: absolute;
+    top: 10%;
+    right: -50px;
+    /* forces square, match p's line-height */
+    width: 50px;
+    aspect-ratio: 1 / 1;
+    /* can remove transition */
+    transition: all .2s ease-out;
+}
+
+.shop_btn p {
+    background: var(--charcoal);
+    font-size: 1.2em;
+    /* nowrap forces text to overflow which is how this was made to work */
+    white-space: nowrap;
+    /* match to btn's width */
+    line-height: 50px;
+    /* to stop hugging left-side */
+    padding-left: 0.7em;
+    /* animation properties, can remove transition */
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.1s ease;
+}
+
+.shop_btn i {
+    /* layers this above p, makes the popout cleaner */
+    position: relative;
+    z-index: 2;
+    /* text properties */
+    color: #fff;
+    font-size: 2em;
+    /* spacing */
+    margin-right: 0.1em;
+    padding: 0.2em;
+}
+
+.product_card:hover .shop_btn,
+.product_title:focus~.shop_btn,
+.shop_btn:focus {
+    /* makes button appear */
+    transform: translateX(-100%);
+}
+
+.shop_btn:hover p,
+.shop_btn:hover i,
+.shop_btn:focus p,
+.shop_btn:focus i {
+    /* some highlight for responsiveness */
+    color: var(--muted_red);
+}
+
+.shop_btn:hover p,
+.shop_btn:focus p {
+    /* makes button's text appear */
+    transform: translateX(0);
+    opacity: 1;
+}
+
+footer {
+    background-image: url("/Images/Shop%20Landing%20Page/nice_bg.jpg");
+    /* spaces from product */
+    margin-top: 7em;
+    width: 100%;
+
+    /* for :before */
+    position: relative;
+}
+
+.footer_child {
+    /* darkens + blurs background */
+    background: rgb(16 16 16 / 0.75);
+    backdrop-filter: blur(2px);
+    height: 100%;
+    color: var(--off_white);
+}
+
+.footer_content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    height: 100%;
+    width: 80%;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.footer_content h3 {
+    font-size: 1.4em;
+}
+
+.email {
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+    margin-block: auto;
+}
+
+.email_box {
+    position: relative;
+    width: fit-content;
+    margin-inline: auto;
+    margin-top: 0.7em;
+}
+
+.footer_socials ul {
+    display: flex;
+    justify-content: center;
+    font-size: 1.7em;
+}
+
+.footer_socials a {
+    color: var(--muted_red);
+}
+
+.footer_socials a:hover {
+    color: var(--off_white);
+}
+
+.copyright {
+    grid-column: 1 / -1;
+    text-align: center;
+    align-self: end;
+}
+
+.credit a,
+.help a {
+    color: #fff;
+}
+
+.credit a:hover,
+.help a:hover {
+    color: var(--muted_red);
+}
+
+#email_input {
+    height: 30px;
+    width: 250px;
+    font-size: 1em;
+}
+
+#submit {
+    height: 30px;
+    padding-inline: 1em;
+    border: none;
+    position: absolute;
+    background-color: var(--dark_red);
+    font-size: 1em;
+    color: #fff;
+    right: 0;
+    top: 0;
+}
+
+/* REVIEW & HOME */
+@media (max-width: 1200px) {
+    .landing_grid .landing_text {
+        padding-left: 0;
+        margin-left: 1.2em;
+    }
+
+    #scroll_left,
+    #scroll_right {
+        border-radius: 0;
+    }
+
+    /* scroll turns into tabs as there's no space on the sides */
+    #scroll_left {
+        left: 0;
+        border-top-right-radius: 30%;
+        border-bottom-right-radius: 30%;
+    }
+
+    #scroll_right {
+        right: 0;
+        border-top-left-radius: 30%;
+        border-bottom-left-radius: 30%;
+    }
+}
+
+/* FOR HOME */
+@media (max-width: 1015px) {
+    .landing_grid .landing_text {
+        background-color: rgb(0, 0, 0, 0.1);
+        border-radius: 7px;
+        text-align: center;
+    }
+}
+
+/* FOR REVIEW */
+@media (max-width: 900px) {
+    .review_wrapper {
+        max-width: 700px;
+    }
+
+    .reviews {
+        grid-auto-columns: calc((100% / 2 - 8px));
+    }
+
+    /* we bring back circle scroll due to surplus space */
+    #scroll_left {
+        left: -50px;
+        border-radius: 50%;
+    }
+
+    #scroll_right {
+        right: -50px;
+        border-radius: 50%;
+    }
+}
+
+/* NAV, HOME, VIDEO, REVIEW, & SHOP */
+@media (max-width: 782px) {
+
+    .links,
+    .socials {
+        display: none;
+    }
+
+    .links[data-visible="true"],
+    .socials[data-visible="true"] {
+        display: flex;
+    }
+
+    .links {
+        position: fixed;
+        inset: 82px 0 350px 0;
+        min-height: 350px;
+        max-height: 350px;
+        padding-top: 1.2em;
+        gap: 2em;
+        flex-direction: column;
+        text-align: center;
+        background-color: var(--charcoal);
+
+        /* might change */
+        opacity: 0.9;
+    }
+
+    .socials {
+        position: fixed;
+        inset: 392px 0 50% 50%;
+        gap: 1em;
+        width: fit-content;
+        transform: translateX(-50%);
+    }
+
+    .nav_toggle[aria-expanded="false"] .bx-x {
+        display: none;
+    }
+
+    .nav_toggle[aria-expanded="true"] .bx-menu {
+        display: none;
+    }
+
+    .nav_toggle {
+        position: absolute;
+        right: 2em;
+        display: block;
+        border: none;
+        background: none;
+    }
+
+    .nav_toggle i {
+        font-size: 3em;
+        cursor: pointer;
+    }
+
+    .nav_toggle i:hover {
+        color: var(--muted_red);
+    }
+
+    .nav-link:hover:before {
+        /* Disables hover since mobile devices can't use it */
+        transform: scaleX(0);
+    }
+
+    /* Clip .bg_transition (maybe better looking at smaller sizes?)
+    Can move up to the 930px @meda potentially? */
+    .landing_grid .bg_transition {
+        min-width: 400px;
+        object-fit: cover;
+    }
+
+    .landing_grid .landing_text {
+        width: 350px;
+        max-width: 100%;
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+        /* font-size: 2.6em; */
+        margin-right: auto;
+        margin-left: auto;
+        background-color: rgb(0, 0, 0, 0);
+    }
+
+    .landing_grid:before {
+        content: "";
+        background: rgb(0, 0, 0, 0.4);
+        grid-column: 1 / -1;
+        grid-row: 1 / -1;
+        backdrop-filter: blur(4px);
+        z-index: -1;
+    }
+
+    .video_container {
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+    }
+
+    .video_container .video_text {
+        max-width: 90%;
+        width: auto;
+        text-align: center;
+    }
+
+    #scroll_left,
+    #scroll_right {
+        border-radius: 0;
+    }
+
+    /* scroll turns into tabs as there's no space on the sides */
+    #scroll_left {
+        left: 0;
+        border-top-right-radius: 30%;
+        border-bottom-right-radius: 30%;
+    }
+
+    #scroll_right {
+        right: 0;
+        border-top-left-radius: 30%;
+        border-bottom-left-radius: 30%;
+    }
+
+    /* DISABLES FEATURED CARD */
+    .product_card[data-featured="true"] {
+        grid-row: 1 / 2;
+        grid-column: 1 / 2;
+    }
+
+    .product_card[data-featured="true"] img {
+        aspect-ratio: 1 / 1;
+        /* fixes round border issue */
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    .stacked {
+        display: block;
+    }
+}
+
+/* ONLY FOR .REVIEWS FOR NOW */
+@media (max-width: 600px) {
+    .review_wrapper {
+        /* changed to contain arrow so that it's a little more scalable due to how small the screen is
+            might be worth going back and doing the same to the others
+            EDIT: More trouble than it's worth, screw it */
+        max-width: 450px;
+    }
+
+    .reviews {
+        grid-auto-columns: 100%;
+        /* 320px is end of support */
+        min-width: 320px;
+        /* allows for the card to be center aligned */
+        max-width: 350px;
+        /* too lazy to figure out what caused it to no longer be centered so here */
+        margin-inline: auto;
+    }
+
+    /* we bring back circle scroll due to surplus space */
+    #scroll_left {
+        /* back to circle */
+        border-radius: 50%;
+    }
+
+    #scroll_right {
+        /* back to circle */
+        border-radius: 50%;
+    }
+
+    .footer_content {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap: 1.5em;
+    }
+}
+
+/* HOME & REVIEW */
+@media (max-width: 380px) {
+    .landing_grid .landing_text {
+        font-size: 2.6em;
+        min-width: auto;
+    }
+
+    .video_container {
+        padding: 0;
+    }
+
+    #scroll_left,
+    #scroll_right {
+        border-radius: 0;
+    }
+
+    /* scroll turns into tabs as there's no space on the sides */
+    #scroll_left {
+        border-top-right-radius: 30%;
+        border-bottom-right-radius: 30%;
+    }
+
+    #scroll_right {
+        border-top-left-radius: 30%;
+        border-bottom-left-radius: 30%;
+    }
+}

@@ -1,0 +1,353 @@
+<!--  TODO: 
+    - Fuck around with tabbing later, seems weird
+    - Make a contact us button below landing_text 
+    - DONE: Fancy border between process and reviews? 
+    - Motto?: Brew and enjoy, simply Java
+    - For the product_grid: Coffee made simple -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="main.js" defer></script>
+    <title>Home Example</title>
+</head>
+
+<body>
+
+    <div id="header">
+        <!-- HEADER LEFT -->
+        <a href="#" class="logo"><img src="/Images/Shop%20Landing%20Page/logo2(cropped%20+%20compressed).png"
+                alt="Our company logo, a coffee cup" id="header-img">
+            <p>Simply<span class="logo_text">Java</span></p>
+        </a>
+
+        <button class="nav_toggle" aria-label="Navigation Menu" aria-expanded="false">
+            <i class='bx bx-menu' aria-hidden="true"></i>
+            <i class='bx bx-x' aria-hidden="true"></i>
+        </button>
+
+        <!-- HEADER MIDDLE -->
+        <nav id="nav-bar">
+            <ul class="links" data-visible="false">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#process" class="nav-link">Our Process</a></li>
+                <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                <li><a href="#shop" class="nav-link">Shop</a></li>
+            </ul>
+        </nav>
+
+        <!-- HEADER RIGHT -->
+        <div>
+            <ul class="socials" data-visible="false">
+                <li><a href="#" aria-label="Facebook"><i class='bx bxl-facebook' aria-hidden="true"></i></a></li>
+                <li><a href="#" aria-label="LinkedIn"><i class='bx bxl-linkedin' aria-hidden="true"></i></a></li>
+                <li><a href="#" aria-label="Twitter"><i class='bx bxl-twitter' aria-hidden="true"></i></a></li>
+                <li><a href="#" aria-label="WhatsApp"><i class='bx bxl-whatsapp' aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- added .break to images to reduce loading while developing, remove for ship -->
+    <div id="home" class="landing_grid">
+        <p class="landing_text">Lorum Ipsum, dolor sit amet</p>
+
+        <img src="/Images/Shop%20Landing%20Page/background%20ex6%20(ashkan%20forouzani).jpg" alt="" class="bg_img">
+
+        <img src="/Images/Shop%20Landing%20Page/transition(off-white).png" alt="" class="bg_transition">
+
+    </div>
+
+
+    <div id="process" class="video_container">
+        <iframe src='https://www.youtube.com/embed/Nu8kIIL-CDA?si=POhmqR0jA_0l7vMu' allowfullscreen></iframe>
+        <div class="video_text">
+            <h2 class="nav_title">Our Process</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut
+                aliquip ex ea commodo consequat.</p>
+        </div>
+    </div>
+
+    <div class="review_wrapper">
+        <div class="rdivider">
+            <span class="rspan"></span>
+            <h2 class="nav_title" id="reviews">Reviews</h2>
+        </div>
+        <i id="scroll_left" class='bx bx-chevron-left'></i>
+        <div class="reviews">
+            <!-- CARD #1 -->
+            <div class="review_card">
+                <img src="/Images/Shop%20Landing%20Page/hulk_hogan(compressed).jpg" alt="Picture of our reviewer"
+                    draggable="false">
+                <div class="stars">
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                </div>
+                <h3>Fantastic Coffee, Brother!</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. </p>
+            </div>
+            <!-- CARD #2 -->
+            <div class="review_card">
+                <img src="/Images/Shop%20Landing%20Page/harold.jpg" alt="Picture of our reviewer" draggable="false">
+                <div class="stars">
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                </div>
+                <h3>Terrible, way too bitter</h3>
+                <p>EDIT: I just forgot the sugar, changed my rating to reflect this.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation... </p>
+            </div>
+            <!-- CARD #3 -->
+            <div class="review_card">
+                <img src="/Images/Shop%20Landing%20Page/shadow_money.png" alt="Picture of our reviewer"
+                    draggable="false">
+                <div class="stars">
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                </div>
+                <h3>Just as good as casting spells</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. </p>
+            </div>
+            <!-- CARD #4 -->
+            <div class="review_card ganon">
+                <img src="https://media1.tenor.com/m/6EUQjvG-IrQAAAAC/ganon-ganondorf.gif" alt="Picture of our reviewer"
+                    draggable="false">
+                <div class="stars">
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                </div>
+                <h3>Es tan suave como yo</h3>
+                <p class="suavemente"> Suavemente, bésame
+                    Que quiero sentir tus labios
+                    Besándome otra vez
+
+                    (Suave) bésame, bésame
+                    (Suave) bésame otra vez
+                    (Suave) que quiero sentir tus labios
+                    ...</p>
+            </div>
+            <!-- CARD #5 -->
+            <div class="review_card">
+                <img src="/Images/Shop%20Landing%20Page/miku.jpg" alt="Picture of our reviewer" draggable="false">
+                <div class="stars">
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bx-star' aria-hidden="true"></i>
+                </div>
+                <h3>いいけどパッケ読めない</h3>
+                <p>面テア館隊事てと来5毎ヒワサヨ神東多ユ続商ヒエオ禁者続ホツユタ鹿供なゅょら止力ぴわ線誇ツヌム以府ク解聞カイレ禁給ユア趣労ツク同崎ぼぱし談丸豪茨のげ。</p>
+            </div>
+            <!-- CARD #6 -->
+            <div class="review_card">
+                <img src="/Images/Shop%20Landing%20Page/len(cropped).jpg" alt="Picture of our reviewer"
+                    draggable="false">
+                <div class="stars">
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                    <i class='bx bxs-star' aria-hidden="true"></i>
+                </div>
+                <h3>コーヒーは死ぬほど旨い</h3>
+                <p>面テア館隊事てと来5毎ヒワサヨ神東多ユ続商ヒエオ禁者続ホツユタ鹿供なゅょら止力ぴわ線誇ツヌム以府ク解聞カイレ禁給ユア趣労ツク同崎ぼぱし談丸豪茨のげ。</p>
+            </div>
+        </div>
+        <i id="scroll_right" class='bx bx-chevron-right'></i>
+    </div>
+
+
+    <div class="bg_wrapper">
+        <div class="product_container">
+            <div class="product_header">
+                <span class="pspan"></span>
+                <h2 class="nav_title" id="shop">Featured Products</h2>
+                <p>Made simple, made delicious</p>
+            </div>
+            <div class="product_grid">
+                <!-- CARD #1 -->
+                <div data-featured="true" class="product_card stacked">
+                    <p class="sale">On Sale!</p>
+                    <img src="https://m.media-amazon.com/images/I/81jFxPTdcoL._SL1500_.jpg"
+                        alt="a bag of Good as Gold's tanzania peaberry coffee">
+                    <div data-featured="true" class="product_content">
+                        <a class="product_title" href="#">
+                            <h3>Good as Gold's Tanzania Peaberry</h3>
+                        </a>
+                        <p class="price"><span class="slashed">$49.89</span> $30.99</p>
+                        <a class="shop_btn" href="#">
+                            <p>Shop</p><i class='bx bxs-cart' aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD #2 -->
+                <div class="product_card">
+                    <img src="https://m.media-amazon.com/images/I/61ljzJa9oAL._SL1500_.jpg"
+                        alt="a bag of Intelligentsia's black cat espresso">
+                    <div class="product_content">
+                        <a class="product_title" href="#">
+                            <h3>Intelligentsia's Black Cat Espresso</h3>
+                        </a>
+                        <p class="price">$13.65</p>
+                        <a class="shop_btn" href="#">
+                            <p>Shop</p><i class='bx bxs-cart' aria-hidden="true" ></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD #3 -->
+                <div class="product_card">
+                    <img src="https://m.media-amazon.com/images/I/71XLMTm5gzL._SL1500_.jpg"
+                        alt="a bag of Brooklyn Coffee's medium roast coffee">
+                    <div class="product_content">
+                        <a class="product_title" href="#">
+                            <h3>Brooklyn Coffee's Classic Medium Roast</h3>
+                        </a>
+                        <p class="price">$41.99</p>
+                        <a class="shop_btn" href="#">
+                            <p>Shop</p><i class='bx bxs-cart' aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD #4 -->
+                <div class="product_card">
+                    <img src="https://m.media-amazon.com/images/I/71CiYcpB6JL._SL1500_.jpg"
+                        alt="a bag of Volcanica's medium roast Ethiopian Yirgacheffe">
+                    <div class="product_content">
+                        <a class="product_title" href="#">
+                            <h3>Volcanica's Ethiopian Yirgacheffe</h3>
+                        </a>
+                        <p class="price">$19.99</p>
+                        <a class="shop_btn" href="#">
+                            <p>Shop</p><i class='bx bxs-cart' aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD #5 -->
+                <div class="product_card">
+                    <img src="https://m.media-amazon.com/images/I/61YnPPOJrSL._SL1500_.jpg"
+                        alt="a bag of Don Francisco's kona blend">
+                    <div class="product_content">
+                        <a class="product_title" href="#">
+                            <h3>Don Francisco's Kona Blend</h3>
+                        </a>
+                        <p class="price">$15.99</p>
+                        <a class="shop_btn" href="#">
+                            <p>Shop</p><i class='bx bxs-cart' aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD #6 -->
+                <div class="product_card">
+                    <img src="https://m.media-amazon.com/images/I/81yekq7Nh6L._SL1500_.jpg"
+                        alt="a bag of Koffee Kult's dark roast coffee">
+                    <div class="product_content">
+                        <a class="product_title" href="#">
+                            <h3>Koffee Kult's Artisan Blend</h3>
+                        </a>
+                        <p class="price">$12.04</p>
+                        <a class="shop_btn" href="#">
+                            <p>Shop</p><i class='bx bxs-cart' aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD #7 -->
+                <div class="product_card">
+                    <img src="https://m.media-amazon.com/images/I/71Q129rCmuL._SL1500_.jpg"
+                        alt="a bag of Stumptown's hand-roasted 'hair bender' blend">
+                    <div class="product_content">
+                        <a class="product_title" href="#">
+                            <h3>Stumptown's Hair Bender</h3>
+                        </a>
+                        <p class="price">$15.99</p>
+                        <a class="shop_btn" href="#">
+                            <p>Shop</p><i class='bx bxs-cart' aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer_child">
+
+            <div class="footer_content">
+                <div class="email">
+                    <h3>Your Daily Java Update:</h3>
+                    <form action="https://www.freecodecamp.com/email-submit" class="email_box">
+                        <input id="email_input" type="email" placeholder="Email" required>
+                        <input id="submit" type="submit" value="SIGN UP">
+                    </form>
+                </div>
+                <div class="credit">
+                    <h3>Big Thanks</h3>
+                    <ul>
+                        <li><a href="https://www.seditionart.com/ashkan-forouzani">Ashkan Forouzani</a></li>
+                        <li><a href="https://kippyowo.newgrounds.com/">Kippyowo</a></li>
+                        <li><a href="https://www.youtube.com/user/KepowOb">Kevin Powell</a></li>
+                        <li><a href="https://www.youtube.com/c/codingnepal">Coding Nepal</a></li>
+                        <li><a href="https://www.freepik.com/author/studiogstock">studiogstock</a></li>
+                    </ul>
+                </div>
+                <div class="help">
+                    <h3>Help</h3>
+                    <ul>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Report an Issue</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="footer_socials">
+                    <h3>Our Socials</h3>
+                    <ul>
+                        <li><a href="#" aria-label="Facebook"><i class='bx bxl-facebook' aria-hidden="true"></i></a>
+                        </li>
+                        <li><a href="#" aria-label="LinkedIn"><i class='bx bxl-linkedin' aria-hidden="true"></i></a>
+                        </li>
+                        <li><a href="#" aria-label="Twitter"><i class='bx bxl-twitter' aria-hidden="true"></i></a></li>
+                        <li><a href="#" aria-label="WhatsApp"><i class='bx bxl-whatsapp' aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    <p>Copyright &#169; 2024 Kiovo No Rights Reserved</p>
+
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
