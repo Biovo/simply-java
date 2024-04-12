@@ -575,7 +575,7 @@ img {
 }
 
 footer {
-    background-image: url("/Images/Shop%20Landing%20Page/nice_bg.jpg");
+    background-image: url("Images/nice_bg.jpg");
     /* spaces from product */
     margin-top: 7em;
     width: 100%;
