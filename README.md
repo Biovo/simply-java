@@ -7,4 +7,4 @@ Massive thanks:
   - [Kippyowo](https://www.newgrounds.com/art/view/kippyowo/shadow-wizard-money-gang-pixelart) - Shadow Money Wizard Gang Fanart
   - [TerminalMontage](https://www.youtube.com/watch?v=OiDx6aQ928o) - Suavemente Ganon GIF
     
-Was unable to find sources for the Miku and Len pictures
+Was unable to find sources for the Miku, Len, and footer pictures.
