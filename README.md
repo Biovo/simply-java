@@ -1,5 +1,7 @@
 ### This is a concept website made for a FreeCodeCamp project, it does not actually function as a shop
 
+I have tried to make the website as responsive and accessible as possible but there may still be issues on certain devices, if you see any issues feel free to notify me.
+
 Massive thanks:
   - [Kevin Powell](https://www.youtube.com/watch?v=sKFW3wek21Q&t=648s) - Responsive Grid Tutorial
   - [Coding Nepal](https://www.youtube.com/watch?v=6QE8dXq9SOE) - Carousel Tutorial
